@@ -42,7 +42,10 @@ class _AppState extends State<App>{
                     // ),
                     child: Column(
                         children: [
-                          Image.asset('$_img', width: 300),
+                          Container(
+                            height: 300,
+                            child: Image.asset(_img, width: 300)
+                          ),
                           Padding(
                               padding: const EdgeInsets.only(top: 60),
                               child: Row(
