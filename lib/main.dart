@@ -4,6 +4,8 @@ void main() {
   runApp(const App());
 }
 
+final _scaffoldKey = GlobalKey<ScaffoldMessengerState>();
+
 class App extends StatefulWidget {
   const App({super.key});
   @override
@@ -19,7 +21,10 @@ class _AppState extends State<App>{
     setState(() {
       _counter<=0 ?_counter=3 :_counter--;
       _img = images[_counter];
+      const snackbar = SnackBar(duration: Duration(seconds: 1), content: Text('上一張'));
+      _scaffoldKey.currentState?.showSnackBar(snackbar);
     });
+
   }
 
   void _nextimg(){
@@ -27,11 +32,14 @@ class _AppState extends State<App>{
       _counter>=3 ?_counter=0 :_counter++;
       _img = images[_counter];
     });
+    const snackbar = SnackBar(duration: Duration(seconds: 1), content: Text('下一張'));
+    _scaffoldKey.currentState?.showSnackBar(snackbar);
   }
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+        scaffoldMessengerKey: _scaffoldKey,
         home: Scaffold(
             body: Center(
                 child: Container(
