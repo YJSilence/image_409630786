@@ -36,7 +36,7 @@ class _AppState extends State<App>{
             body: Center(
                 child: Container(
                     alignment: Alignment.center,
-                    margin: const EdgeInsets.only(top: 150, bottom: 200),
+                    margin: const EdgeInsets.only(top: 150),
                     // decoration: BoxDecoration(
                     //   border: Border.all()
                     // ),
